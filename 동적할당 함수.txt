@@ -1,0 +1,4 @@
+char* setalloc(int len) 
+{
+	return (char*)malloc(sizeof(char)*len); //len 만큼 동적할당
+} //1.문자열을 입력받음
