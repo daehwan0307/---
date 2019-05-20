@@ -1,0 +1,14 @@
+void Insert_Data(char *str, char *who) {
+
+	rewind(stdin);   //읽기쓰기 위치를 처음으로 초기화
+
+	while (TRUE) { //아무것도 입력안하면 반복 -> 입력할때 까직 반복   //누구 : 
+		textcolor(10);
+		printf("%s : ", who);   //문자열 출력
+		textcolor(7); //7=LIGHTGRAY
+		Remove_NL(str, SIZE, stdin);
+		printf("\n"); //내용을 SIZE만큼 프린트 stdin -> 출력장치
+		if (strcmp(str, ""))
+			break; //입력되면 반복문 탈출
+	}
+}
