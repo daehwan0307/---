@@ -1,0 +1,6 @@
+char* Remove_NL(char *data, int size, FILE *file) // 파일(스트림)에서 문자열을 받고 개행문자를 제거하는 함수
+{
+	fgets(data, size, file); // file에서 띄어쓰기까지 포함하여 한줄을 불러온다.
+	data[strlen(data) - 1] = '\0'; // 개행문자를 제거한다.
+	return data; //개행문자 제거한 것을 리턴한다.
+}
