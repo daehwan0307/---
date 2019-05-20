@@ -1,0 +1,23 @@
+void AnswerTeach(char *text) {
+
+	char s[SIZE];   //입력받을 문자열 
+	int num, i;
+	FILE *fp = fopen("question.txt", "a");   //파일 입출력 // "question.txt"파일을 열고 파일 접근 권한은 a로 파일 끝에 추가만 가능하며 파일이 존재하지 않을 시 파일을 새로 생성함
+	textcolor(12);   //12=LIGHTRED
+	printf("가르칠 대답의 갯수를 입력! ( 0 입력시 스킵 ) : ");
+	textcolor(7);   //7=LIGHTGRAY
+	scanf("%s", &s);
+	num = atoi(s);   //입력받은 문자열 s를 int 값으로 변환(atoi)
+
+	if (num == 0) {   //0은 입력받은 문자열이 없다는 것
+		fclose(fp);   //파일 닫기
+		return;
+	}
+	fprintf(fp, "%d%s\n", num, text);   //파일에 num와 입력한 질문한 문자열이 저장됨
+	for (i = 0; i < num; i++) {
+		input_data(s, "TEACH");      //input_data함수에 s와 "TEACH"넣기
+		fprintf(fp, "%s\n", s);      //파일에 s 문자열 저장
+	}
+	fprintf(fp, " \n");   //파일에 줄바꿈 저장
+	fclose(fp);   //파일 닫기
+}
