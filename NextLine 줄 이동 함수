@@ -1,0 +1,9 @@
+void NextLine(FILE *file, int line) {
+
+	for (int i = 0; i < line; i++) {
+		while (!feof(file)) {      //파일끝이 아닐때까지
+			if (fgetc(file) == '\n')   // fgetc(->파일의 단일 문자를 읽는다)으로  줄바꿈이 나오면 
+				break;                  // break
+		}
+	}
+}
