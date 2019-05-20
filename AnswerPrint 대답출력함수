@@ -1,0 +1,7 @@
+void AnswerPrint(char *ans) {
+	textcolor(14); //14=YELLOW 
+	printf("┌─소심이 ♥──────────────────────────┐\n");
+	printf(" %s\n", ans);
+	printf("└───────────────────────────────┘\n\n");
+	textcolor(7);   //7=LIGHTGRAY
+}
