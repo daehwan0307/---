@@ -1,0 +1,18 @@
+int Swearword_Filter(char *word) 
+{
+	if (strstr(word, "바보") != NULL || strstr(word, "멍청이") != NULL || strstr(word, "똥개") != NULL) // word문자열에 저장해놓은 욕이 있다면 
+	{   
+		for (int i = 0; i < 2; i++)
+		{
+			MessageBoxA(NULL, "욕하지마세요! \n소심이한테 왜욕하세요?\n안하실거죠??", "욕하지맙시다!", MB_OK);
+			for (int j = 0; j < 1; j++) {
+				MessageBoxA(NULL, "욕하지마세요!\n소심이한테 왜욕하세요?\n진짜진짜진짜안하실거죠??", "욕하지맙시다!", MB_OK);
+			}
+		}
+		return 1;
+	}
+	return 0;
+}
+
+
+// 사용자가 욕(나쁜말)을 입력하면 경고메시지를 출력한다. 바보, 멍청이, 똥개를 입력하면 반복해서 경고 메시지를 출력하는 함수이다.
