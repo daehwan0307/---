@@ -1,0 +1,75 @@
+void Calendar()
+{
+	int month_day[12] = { 31,28,31,30,31,30,31,31,30,31,30,31 };    // 1 ~ 12월 마지막 날
+	int year;          // 연도
+	int month;         // 달
+	int leap_year;     // 윤년
+	int total_day = 0; // 1년이 몇일인지 저장
+	int day;
+
+	printf("*****************************\n");
+	printf("***** 소심이 - 달력보기 *****\n");
+	printf("*****************************\n");
+	printf("\n");
+
+
+	printf("연도를 입력해주세요(예 : 2019) : ");
+	scanf("%d", &year);
+	printf("달을 입력해주세요(예 : 06) : ");
+	scanf("%d", &month);
+
+	printf("\n");
+
+	if ((year % 4 == 0) && !(year % 100 == 0) || (year % 400 == 0))
+	{
+		leap_year = 1;
+	}
+	else
+	{
+		leap_year = 0;
+	}
+
+	switch (leap_year)
+	{
+	case 1:
+		month_day[1]++;
+		break;
+	case 0:
+		break;
+	}
+
+	total_day = 365;
+
+	for (int i = 1; i < year - 1; i++)
+	{
+		if (leap_year == 1)
+			total_day += 366;
+		else
+			total_day += 365;
+	}
+
+	for (int i = 0; i < month - 1; i++)
+		total_day += month_day[i];
+
+	day = total_day % 7; // 1월 1일의 요일
+
+	printf("일\t월\t화\t수\t목\t금\t토\n");
+	printf("===================================================\n");
+
+	//시작 요일에 맞춰 정렬
+	for (int j = 0; j < day; j++)
+		printf("\t");
+
+	for (int i = 1; i <= month_day[month - 1]; i++)
+	{
+		printf("%d\t", i);
+		if (day == 6)
+		{
+			day = -1;
+			printf("\n");
+		}
+		day++;
+	}
+	printf("\n");
+	printf("\n");
+}
