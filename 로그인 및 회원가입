@@ -1,0 +1,102 @@
+void signup() //회원가입
+{
+	textcolor(14);
+	gotoxy(90, 2); puts("* 회원가입 *");
+	textcolor(10);
+	gotoxy(82, 5);   printf("┌─────────────────────────┐ ");
+	gotoxy(82, 6);    printf("│        회원가입         │ ");
+	gotoxy(82, 7);    printf("│─────────────────────────│ ");
+	gotoxy(82, 8);   printf("│ ID       │              │ ");
+	gotoxy(82, 9);     printf("│─────────────────────────│ ");
+	gotoxy(82, 10);  printf("│ password │              │ ");
+	gotoxy(82, 11);  printf("└─────────────────────────┘ ");
+	textcolor(12);
+	gotoxy(76, 14);    printf("┌───────────────────────────────────┐ ");
+	gotoxy(76, 15);    printf("│ 주의! 비밀번호는 영문or숫자 로만!!│ ");
+	gotoxy(76, 16);    printf("└───────────────────────────────────┘ ");
+	textcolor(15);
+	gotoxy(95, 8); gets(log[top].Name);
+	gotoxy(95, 10); gets(log[top].password);
+	top++;
+
+	Sleep(1000);
+	system("cls");
+	textcolor(14);
+	gotoxy(90, 2); puts("* 회원가입 *");
+	textcolor(10);
+	gotoxy(84, 5);    printf("┌──────────────────────┐ ");
+	gotoxy(84, 6);    printf("│     회원가입 완료    │ ");
+	gotoxy(84, 7);   printf("└──────────────────────┘ ");
+	Sleep(1000);
+	system("cls");
+	main();
+}
+
+char *login()  //로그인화면
+{
+	char tmp[80], tmp2[20];
+	int i;
+
+
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+	gotoxy(90, 2); puts("* 로그인 *");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
+	gotoxy(82, 5);    printf("┌───────────────────────┐ ");
+	gotoxy(82, 6);    printf("│         로그인        │ ");
+	gotoxy(82, 7);    printf("│───────────────────────│ ");
+	gotoxy(82, 8);   printf("│ ID       │            │ ");
+	gotoxy(82, 9);     printf("│───────────────────────│ ");
+	gotoxy(82, 10);  printf("│ password │            │ ");
+	gotoxy(82, 11);  printf("└───────────────────────┘ ");
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+	gotoxy(95, 8); gets(tmp);
+	gotoxy(95, 10); gets(tmp2);
+	for (i = 0; i < top; i++) {
+		if (!strcmp(log[i].Name, tmp))
+			break;
+	}
+
+	if (i == top) {
+		system("cls");
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+		gotoxy(90, 2); puts("* 로그인 *");
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+		gotoxy(76, 5);    printf("┌────────────────────────────────────┐ ");
+		gotoxy(76, 6);    printf("│    아이디가없거나 잘못되었습니다.  │ ");
+		gotoxy(76, 7);   printf("└────────────────────────────────────┘ ");
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+		Sleep(800);
+		system("cls");
+		return NULL;
+
+	}
+	if (!strcmp(log[i].password, tmp2))
+	{
+		system("cls");
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+		gotoxy(90, 2); puts("* 로그인 *");
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 10);
+		gotoxy(87, 5);    printf("┌──────────────┐ ");
+		gotoxy(87, 6);    printf("│ 로그인 완료! │ ");
+		gotoxy(87, 7);   printf("└──────────────┘ ");
+		Sleep(800);
+		system("cls");
+		return log[i].Name;
+		exit(1);
+	}
+	else
+	{
+		system("cls");
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+		gotoxy(90, 2); puts("* 로그인 *");
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 12);
+		gotoxy(80, 5);    printf("┌──────────────────────────────┐ ");
+		gotoxy(80, 6);    printf("│   비밀번호가 잘못되었습니다. │ ");
+		gotoxy(80, 7);   printf("└──────────────────────────────┘ ");
+		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 15);
+		Sleep(800);
+		system("cls");
+		return NULL;
+
+	}
+}
